@@ -4,10 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ưu đãi ChatGPT</title>
-  <meta property="og:title" content="Ưu đãi ChatGPT" />
-  <meta property="og:description" content="Bấm để mở ưu đãi chính thức. Nếu đang trong ứng dụng chat, nhấn nút Mở bằng trình duyệt." />
-  <meta property="og:image" content="https://your-domain/preview.jpg" />
+
+  <!-- Open Graph tags for preview -->
+  <meta property="og:title" content="Ưu đãi ChatGPT • Link chính thức" />
+  <meta property="og:description" content="Bấm để mở ưu đãi. Nếu đang trong app chat, hãy mở bằng trình duyệt ngoài (Safari/Chrome)." />
+  <meta property="og:image" content="https://pikaplusshop-bit.github.io/Promo/pikaplus-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://pikaplusshop-bit.github.io/Promo/" />
   <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     :root{
       --bg:#fff7d1; --card:#fffdfa; --fg:#1a1a1a; --muted:#555;
@@ -117,7 +124,7 @@
 
   extBtn.onclick = () => {
     const w = window.open(promoUrl, '_blank', 'noopener');
-    if(!w){ flash('Không mở được tab mới. Hãy bấm ••• và chọn \"Mở bằng trình duyệt\".', true); }
+    if(!w){ flash('Không mở được tab mới. Hãy bấm ••• và chọn "Mở bằng trình duyệt".', true); }
     else { flash('Đang mở trong tab mới…'); }
   };
 

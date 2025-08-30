@@ -5,40 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ưu đãi ChatGPT</title>
   <meta property="og:title" content="Ưu đãi ChatGPT" />
-  <meta property="og:description" content="Bấm để mở ưu đãi chính thức. Nếu đang trong app chat, hãy chọn Mở bằng trình duyệt." />
-  <meta property="og:image" content="https://pikaplusshop-bit.github.io/Promo/Pika%20logo.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:url" content="https://pikaplusshop-bit.github.io/Promo/" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:description" content="Bấm để mở ưu đãi chính thức. Nếu đang trong ứng dụng chat, nhấn nút Mở bằng trình duyệt." />
+  <meta property="og:image" content="https://your-domain/preview.jpg" />
   <meta property="og:type" content="website" />
   <style>
-    :root{ --bg:#fff7d1; --card:#fffdfa; --fg:#1a1a1a; --muted:#555; --accent:#ffd93d; --accent2:#ffb703; --border:rgba(0,0,0,.1); }
+    :root{
+      --bg:#fff7d1;            /* nền chính ngả vàng nhạt */
+      --card:#fffdfa;          /* thẻ trắng sáng */
+      --fg:#1a1a1a;            /* chữ chính */
+      --muted:#555;            /* chữ phụ */
+      --accent:#ffd93d;        /* vàng Pikachu */
+      --accent2:#ffb703;       /* cam nhạt hover */
+      --border:rgba(0,0,0,.1); /* viền nhạt */
+    }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#fff7d1 0%,#ffd93d 50%,#ffb703 100%); color:var(--fg); font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    .card{width:min(720px,92vw); background:var(--card); border:1px solid var(--border); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.25)}
+    body{
+      margin:0; display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(135deg, #fff7d1 0%, #ffd93d 50%, #ffb703 100%);
+      color:var(--fg); font-family:system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    .card{width:min(720px, 92vw); background:var(--card); border:1px solid var(--border); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.25)}
     .brand{display:flex; align-items:center; gap:14px; margin-bottom:12px}
     .brand img{height:60px; object-fit:contain}
     h1{font-size:22px; margin:0; color:#1a1a1a}
     p{color:var(--muted); margin:6px 0 16px}
     .cta{display:flex; gap:10px; align-items:center; margin-top:6px; flex-wrap:wrap}
     button, a.btn{appearance:none; border:none; border-radius:12px; padding:12px 16px; cursor:pointer; font-weight:700; text-decoration:none}
-    .primary{background:var(--accent); color:#1a1a1a}
-    .primary:hover{background:var(--accent2)}
+    .primary{background:var(--accent); color:#1a1a1a;}
+    .primary:hover{background:var(--accent2);}
     .ghost{background:transparent; color:var(--fg); border:1px solid var(--border)}
-    .tip{margin-top:10px; font-size:12px; color:var(--muted)}
-    .ok{color:#16a34a} .err{color:#ef4444}
-    .guide{margin-top:14px; font-size:13px; color:#d32f2f; line-height:1.4}
+    .input{display:flex; gap:8px; margin-top:12px}
+    .input input{flex:1; min-width:260px; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:#fff; color:var(--fg)}
+    .tip{margin-top:8px; font-size:12px; color:var(--muted)}
+    .ok{color:#16a34a}
+    .err{color:#ef4444}
   </style>
 </head>
 <body>
   <div class="card">
     <div class="brand">
-      <img src="Pika logo.png" alt="Logo Pikaplus" onerror="this.style.display='none'">
+      <img src="pikaplus-og.png" alt="Logo Pikaplus">
       <div>
         <h1>Ưu đãi ChatGPT • Link chính thức</h1>
-        <p>Bấm nút bên dưới để mở link ưu đãi. Nếu bạn đang trong ứng dụng chat (Zalo/FB...), hãy nhấn <b>Mở bằng trình duyệt</b>.</p>
+        <p>Bấm nút bên dưới để mở link ưu đãi. Nếu bạn đang ở trong ứng dụng chat (Zalo/FB, v.v.), hãy chọn <b>Mở bằng trình duyệt</b>.</p>
       </div>
     </div>
 
@@ -48,40 +58,49 @@
       <button id="extBtn" class="ghost">Mở bằng trình duyệt</button>
     </div>
 
-    <div class="guide">⚠️ Nếu bạn đang sử dụng điện thoại, hãy bấm dấu ⋮ (menu) ở góc dưới rồi chọn <b>"Mở bằng Safari/Chrome"</b> để nhận ưu đãi.</div>
+    <div class="input">
+      <input id="promo" type="text" placeholder="Dán link ưu đãi ChatGPT tại đây" />
+      <button id="saveBtn" class="ghost">Lưu link</button>
+    </div>
 
-
-      <div class="tip" id="msg">Bạn có thể truyền link động bằng tham số URL: <span style="font-family:monospace">?u=...</span></div>
+    <div class="tip" id="msg">Bạn có thể đính sẵn link bằng tham số URL: <span style="font-family:monospace">?u=...</span></div>
   </div>
 
 <script>
-  // ===== Config: fallback nếu không truyền ?u=... =====
   const DEFAULT_PROMO = 'https://chat.openai.com/?promo=YOUR_CODE';
 
+  const promoInput = document.getElementById('promo');
   const openBtn = document.getElementById('openBtn');
   const copyBtn = document.getElementById('copyBtn');
   const extBtn  = document.getElementById('extBtn');
-  const msg = document.getElementById('msg'); // có thể null nếu xoá tip
+  const saveBtn = document.getElementById('saveBtn');
+  const msg = document.getElementById('msg');
 
-  // Lấy link từ ?u=...
-  const u = new URL(location.href);
-  let promoUrl = u.searchParams.get('u') || DEFAULT_PROMO;
+  const url = new URL(location.href);
+  let promoUrl = url.searchParams.get('u') || localStorage.getItem('promo_url') || DEFAULT_PROMO;
+  promoInput.value = promoUrl;
 
-  // Cập nhật href cho nút
   function setHref(){
     openBtn.setAttribute('href', promoUrl);
-    openBtn.setAttribute('target','_blank');
-    openBtn.setAttribute('rel','noopener noreferrer');
+    openBtn.setAttribute('target', '_blank');
+    openBtn.setAttribute('rel', 'noopener noreferrer');
   }
   setHref();
 
-  // Copy
-  copyBtn.onclick = async () => {
-    try{ await navigator.clipboard.writeText(promoUrl); flash('Đã copy link vào clipboard'); }
-    catch{ flash('Không copy được – hãy copy thủ công', true); }
+  saveBtn.onclick = () => {
+    const val = promoInput.value.trim();
+    if(!val) { flash('Vui lòng nhập link hợp lệ', true); return; }
+    promoUrl = val;
+    localStorage.setItem('promo_url', promoUrl);
+    setHref();
+    flash('Đã lưu link ưu đãi');
   };
 
-  // Mở bằng trình duyệt ngoài (hạn chế in-app browser)
+  copyBtn.onclick = async () => {
+    try { await navigator.clipboard.writeText(promoUrl); flash('Đã copy link vào clipboard'); }
+    catch { flash('Không copy được – hãy copy thủ công', true); }
+  };
+
   extBtn.onclick = () => {
     const w = window.open(promoUrl, '_blank', 'noopener');
     if(!w){ flash('Không mở được tab mới. Hãy bấm ••• và chọn "Mở bằng trình duyệt".', true); }
@@ -89,12 +108,9 @@
   };
 
   function flash(text, isErr){
-    if(!msg) return; // nếu phần tip bị xoá thì bỏ qua
     msg.textContent = text;
     msg.className = 'tip ' + (isErr ? 'err' : 'ok');
-    clearTimeout(window.__t);
-    window.__t = setTimeout(()=>{ msg.className='tip'; msg.textContent='Bạn có thể truyền link động bằng ?u=...'; }, 3000);
-  }, 3000);
+    setTimeout(()=>{ msg.className='tip'; msg.textContent = 'Bạn có thể đính sẵn link bằng ?u=...'; }, 3000);
   }
 </script>
 </body>

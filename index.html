@@ -6,7 +6,11 @@
   <title>Ưu đãi ChatGPT</title>
   <meta property="og:title" content="Ưu đãi ChatGPT" />
   <meta property="og:description" content="Bấm để mở ưu đãi chính thức. Nếu đang trong app chat, hãy chọn Mở bằng trình duyệt." />
-  <meta property="og:image" content="https://your-domain/preview.jpg" />
+  <meta property="og:image" content="https://pikaplusshop-bit.github.io/Promo/Pika%20logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://pikaplusshop-bit.github.io/Promo/" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:type" content="website" />
   <style>
     :root{ --bg:#fff7d1; --card:#fffdfa; --fg:#1a1a1a; --muted:#555; --accent:#ffd93d; --accent2:#ffb703; --border:rgba(0,0,0,.1); }
@@ -47,6 +51,7 @@
     <div class="guide">⚠️ Nếu bạn đang sử dụng điện thoại, hãy bấm dấu ⋮ (menu) ở góc dưới rồi chọn <b>"Mở bằng Safari/Chrome"</b> để nhận ưu đãi.</div>
 
 
+      <div class="tip" id="msg">Bạn có thể truyền link động bằng tham số URL: <span style="font-family:monospace">?u=...</span></div>
   </div>
 
 <script>
@@ -56,7 +61,7 @@
   const openBtn = document.getElementById('openBtn');
   const copyBtn = document.getElementById('copyBtn');
   const extBtn  = document.getElementById('extBtn');
-  const msg     = document.getElementById('msg');
+  const msg = document.getElementById('msg'); // có thể null nếu xoá tip
 
   // Lấy link từ ?u=...
   const u = new URL(location.href);
@@ -84,10 +89,12 @@
   };
 
   function flash(text, isErr){
+    if(!msg) return; // nếu phần tip bị xoá thì bỏ qua
     msg.textContent = text;
     msg.className = 'tip ' + (isErr ? 'err' : 'ok');
     clearTimeout(window.__t);
     window.__t = setTimeout(()=>{ msg.className='tip'; msg.textContent='Bạn có thể truyền link động bằng ?u=...'; }, 3000);
+  }, 3000);
   }
 </script>
 </body>
